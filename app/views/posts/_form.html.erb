@@ -16,6 +16,7 @@
   </div>
 
   <div class="field">
+    <%= form.label :프로필사진 %>
     <%= form.file_field :profile_picture%>
   </div>
 
@@ -23,6 +24,18 @@
     <%= form.label :dateofbirth %>
     <%= form.date_select :dateofbirth, {order: [:year, :month, :day], 
         prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 15, end_year: Date.today.year - 100}, {required: true} %>
+  </div>
+  
+  <div class="field">
+    <%= form.radio_button(:sex, "male", :checked => true ) %>
+    <%= label_tag(:age_male, "남자") %>
+    <%= form.radio_button(:sex, "female") %>
+    <%= label_tag(:age_female, "여자") %>
+  </div>
+
+  <div class="field">
+    <%= form.label :간단소개 %>
+    <%= form.text_area :content %>
   </div>
   
     

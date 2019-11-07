@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_131602) do
     t.string "name"
     t.datetime "dateofbirth"
     t.string "current_user_email"
+    t.string "sex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

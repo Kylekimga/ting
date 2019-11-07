@@ -23,7 +23,7 @@
         <table>
           <thead>
             <tr>
-              <th>친구목록</th>
+              <th>전체 등록된 프로필</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -42,6 +42,34 @@
       <% end %>
 
       
+<hr>
+<h2>솔로녀 친구</h2>
+<p><%= link_to "친구목록 수정", posts_path %></p>
+<!--친구 맺긴는 '좋아요'기능을 응용해서, 서로 좋아요를 누르면 '친구가 된 것'으로 인식토록 하기. -->
+<!--"친구목록 수정"은 무엇을 뜻하는지 명확히 할 필요. 친구 프로필을 건드릴 것인지?(이건 좀 아닌듯?) 공개되는 친구, 친구들의 순서 등을 수정할 건지. <- 이런 기능은 우리가 배운 적이 없음-->
+    
+
+<% @posts.each do |p| %>
+    <% if p.sex == 'female' %>
+        <%= p.name %> <br>
+        <% if p.profile_picture.attached? %>
+            <%= image_tag url_for(p.profile_picture), style: 'height:300px;width:auto' %>
+        <% end %>
+    <% end %>
+<% end %>
+<hr>
+<h2>솔로남 친구</h2>
+<p><%= link_to "친구목록 수정", posts_path %></p>
+    
+
+<% @posts.each do |p| %>
+    <% if p.sex == 'male' %>
+        <%= p.name %> <br>
+        <% if p.profile_picture.attached? %>
+            <%= image_tag url_for(p.profile_picture), style: 'height:300px;width:auto' %>
+        <% end %>
+    <% end %>
+<% end %>
 
     <br>
     

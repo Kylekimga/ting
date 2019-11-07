@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :name
       t.datetime :dateofbirth
       t.string :current_user_email
+      t.string :sex
       
       t.timestamps
     end
