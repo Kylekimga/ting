@@ -1,0 +1,33 @@
+<%= form_with(model: post, local: true, url: create_posts_path(current_user.id))  do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "대화명"%>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :profile_picture%>
+  </div>
+
+  <div class="field">
+    <%= form.label :dateofbirth %>
+    <%= form.date_select :dateofbirth, {order: [:year, :month, :day], 
+        prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 15, end_year: Date.today.year - 100}, {required: true} %>
+  </div>
+  
+    
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
