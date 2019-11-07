@@ -6,6 +6,11 @@ class RegistrationsController < ApplicationController
   def sign_up_params
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
   end
+    
+  # GET /resource/sign_up
+  def new 
+    super
+  end
 
   def account_update_params
     params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :current_password)
