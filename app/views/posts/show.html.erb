@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>이름:</strong>
+  <%= @post.name %>
+</p>
+<p>
+  <strong>프로필 사진:</strong>
+  <% if @post.profile_picture.attached? %>
+    <%= image_tag(@post.profile_picture, size:'200x200')%>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
